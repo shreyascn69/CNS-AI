@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CNS AI - Assistant</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+      body {
+        font-family: 'Inter', sans-serif;
+        /* Background handled by React App for Theme switching */
+        overflow: hidden; /* Prevent body scroll, handle in app */
+      }
+      /* Custom scrollbar for chat logs */
+      .scrollbar-hide::-webkit-scrollbar {
+          display: none;
+      }
+      .scrollbar-hide {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+      }
+      
+      /* Markdown Content Styling */
+      .markdown-content {
+        font-size: 0.95rem;
+        line-height: 1.7;
+        /* Color is now dynamic in React component */
+      }
+      .markdown-content h1, 
+      .markdown-content h2, 
+      .markdown-content h3 {
+        font-weight: 600;
+        margin-top: 1.5rem;
+        margin-bottom: 0.75rem;
+        font-size: 1.1rem;
+      }
+      .markdown-content h1:first-child, 
+      .markdown-content h2:first-child {
+        margin-top: 0;
+      }
+      .markdown-content p {
+        margin-bottom: 1rem;
+      }
+      .markdown-content p:last-child {
+        margin-bottom: 0;
+      }
+      .markdown-content ul {
+        list-style-type: disc;
+        padding-left: 1.5rem;
+        margin-bottom: 1rem;
+      }
+      .markdown-content ol {
+        list-style-type: decimal;
+        padding-left: 1.5rem;
+        margin-bottom: 1rem;
+      }
+      .markdown-content li {
+        margin-bottom: 0.5rem;
+      }
+      .markdown-content strong {
+        font-weight: 600;
+      }
+      .markdown-content a {
+        color: #3b82f6; /* Blue-500 */
+        text-decoration: underline;
+      }
+
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      .animate-fade-in {
+        animation: fadeIn 0.4s ease-out forwards;
+      }
+
+      /* --- Logo Animations --- */
+      @keyframes spin-slow {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+      }
+      @keyframes spin-reverse-slow {
+        from { transform: rotate(360deg); }
+        to { transform: rotate(0deg); }
+      }
+      
+      .animate-spin-slow {
+        animation: spin-slow 12s linear infinite;
+      }
+      .animate-spin-reverse-slow {
+        animation: spin-reverse-slow 15s linear infinite;
+      }
+
+      @keyframes orbit-small {
+        0% { transform: rotate(0deg) translateX(28px) rotate(0deg); }
+        100% { transform: rotate(360deg) translateX(28px) rotate(-360deg); }
+      }
+       @keyframes orbit-large {
+        0% { transform: rotate(0deg) translateX(40px) rotate(0deg); }
+        100% { transform: rotate(-360deg) translateX(40px) rotate(360deg); }
+      }
+
+      .animate-orbit-small {
+        animation: orbit-small 5s linear infinite;
+      }
+      .animate-orbit-large {
+        animation: orbit-large 8s linear infinite;
+      }
+
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "marked": "https://esm.sh/marked@12.0.0",
+    "framer-motion": "https://esm.sh/framer-motion@10.16.4?external=react,react-dom",
+    "lucide-react": "https://esm.sh/lucide-react@0.292.0?external=react,react-dom",
+    "clsx": "https://esm.sh/clsx",
+    "tailwind-merge": "https://esm.sh/tailwind-merge",
+    "docx": "https://esm.sh/docx@8.5.0",
+    "file-saver": "https://esm.sh/file-saver@2.0.5"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>

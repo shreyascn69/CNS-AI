@@ -1,0 +1,7 @@
+{
+  "name": "CNS - The Overall Assistant.",
+  "description": "A professional AI HR assistant providing real-time voice support for company policies, leaves, and benefits.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
